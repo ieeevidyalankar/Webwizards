@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Debug Challenge - Responsive Nav Bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	background: pink;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+nav {
+	background: #733a47;
+	height: auto;
+	min-height: 4vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	font-family: "Arial Black";
+	flex-wrap: wrap;
+}
+
+.navlink {
+	text-decoration: none;
+	color: white;
+	margin: 0 20px;
+	padding: 1rem;
+	margin: 1rem;
+	border-radius: 1rem;
+	font-size: 1rem;
+}
+
+.navlink:hover {
+	background: #cc88aa;
+	color: white;
+	vertical-align: center;
+}
+
+    </style>
+</head>
+<body>
+<nav>
+	<div class="left">
+	<a href="" class="navlink">Home</a>
+	<a href="" class="navlink">Updates</a>
+	<a href="" class="navlink">About</a>
+	</div>
+	<div class="right">
+	<a href="" class="navlink">Contact</a>
+	<a href="" class="navlink">Donate</a>
+	<a href="" class="navlink">Register</a>
+	</div>
+</nav>
+<div>Make the navigation bar responsive. Upon opening the page in mobile mode, or reducing the width of the browser window, the nav bar should have all links properly oriented.</div>
+</body>
+</html>

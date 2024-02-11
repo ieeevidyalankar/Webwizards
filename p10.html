@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debug Challenge - Footer</title>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        background: beige;
+        color: #35200e;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .footer {
+  height: 100px;
+  text-align: left;
+  border: 2px solid #35200e;
+  background: beige;
+}
+.tag {
+    /*hint hint*/
+    font-family: inherit;
+}
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    gap: 1rem;
+}
+
+img {
+    border: 1px solid #35200e;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.5s;
+    border-radius: 10px;
+    padding: 0.5rem;
+    color: #35200e;
+    font-weight: bold;
+}
+a:hover {
+    background: #35200e;
+    color: white;
+}
+</style>
+</head>
+<body>
+    <h1>Select Bibliography of Charles Dickens</h1>
+    <div class="flex">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Charlesdickens.jpg" alt="Illustration" height="300">
+        <ul class="list">
+            <li>The Pickwick Papers</li>
+            <li>Oliver Twist</li>
+            <li>The Old Curiosity Shop</li>
+            <li>A Christmas Carol</li>
+            <li>David Copperfield</li>
+            <li>Hard Times</li>
+            <li>A Tale of Two Cities</li>
+            <li>Great Expectations</li>
+            <li>The Mystery of Edwin Drood</li>
+        </ul>
+    </div>
+
+    <p>Make sure the footer is stuck to the bottom of the page, and the link contained is both vertically and horizontally centered. The final product should look like this.</p>
+    <img src="https://files.catbox.moe/qxbc2s.jpg" alt="Reference Image" width="1200" style="padding: 1rem; margin-bottom: 1rem;">
+    <div class="footer">
+        <span class="tag"><a href="https://linkedin.com/company/ieee-vit">© IEEE-VIT Webwizards</a></span>
+      </div>
+</body>
+</html>

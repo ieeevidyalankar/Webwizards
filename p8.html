@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Challenge - S;G Clock</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 100px;
+}
+
+body {
+    background: #070707;
+}
+
+.div {
+    margin: 0;
+    padding: 0;
+    color: #ff8b48;
+    text-align: center;
+}
+
+.tens, .ones {
+    border: 1px solid gray;
+    border-radius: 20% 20% 0 0;
+    padding: 30px 15px;
+}
+
+.clock {
+    color: rgb(50, 50, 50);
+    display: block;
+    margin: 20vh auto;
+    text-align: center;
+}
+    .clock p.separator,
+    .clock section {
+        display: inline-block;
+    }
+        .clock section div p {
+            position: absolute;
+            width: 60px;
+            text-align: center;
+            transition: 0.3s ease color, 0.3s ease text-shadow;
+        }
+        .clock p.separator {
+            font-size: 60px;
+            vertical-align: top;
+            margin-top: 20px;
+        }
+        a:hover,
+        .clock p.separator,
+        .clock section p.active {
+            color: #ff8b48;
+            text-shadow: 0px 0px 200px #eb883c;
+            font-family: inherit;
+            font-weight: 200;
+        }
+        .clock section div {
+            display: inline-block;
+            width: 30px;
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <section class="hours">
+            <div class="tens">
+                <p>0</p>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+                <p>7</p>
+                <p>8</p>
+                <p>9</p>
+            </div>
+            <div class="ones">
+                <p>0</p>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+                <p>7</p>
+                <p>8</p>
+                <p>9</p>
+            </div>
+        </section>
+        <p class="separator">:</p>
+        <section class="mins">
+            <div class="tens">
+                <p>0</p>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+                <p>7</p>
+                <p>8</p>
+                <p>9</p>
+            </div>
+            <div class="ones">
+                <p>0</p>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+                <p>7</p>
+                <p>8</p>
+                <p>9</p>
+            </div>
+        </section>
+        <p class="separator">:</p>
+        <section class="secs">
+            <div class="tens">
+                <p>0</p>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+                <p>7</p>
+                <p>8</p>
+                <p>9</p>
+            </div>
+            <div class="ones">
+                <p>0</p>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+                <p>5</p>
+                <p>6</p>
+                <p>7</p>
+                <p>8</p>
+                <p>9</p>
+            </div>
+        </section>
+    </div>
+    <div class="div" style="font-size: 20px;">This is an example of a Nixie clock. You have to position the time within the 'glass' sections, and make the active text (orange numbers) more legible.</div>
+    <script>
+        const hours = document.querySelector('.hours')
+const mins = document.querySelector('.mins')
+const secs = document.querySelector('.secs')
+
+function getTime() {
+    const now = new Date()
+    return {
+        hours: now.getHours() <= 9 ? `0${now.getHours()}` : `${now.getHours()}`,
+        mins: now.getMinutes() <= 9 ? `0${now.getMinutes()}` : `${now.getMinutes()}`,
+        secs: now.getSeconds() <= 9 ? `0${now.getSeconds()}` : `${now.getSeconds()}`
+    }
+}
+
+function setDigits(section, digit) {
+    const tens = [...section.children[0].children]
+    const ones = [...section.children[1].children]
+    tens.forEach(number => number.classList.remove('active'))
+    tens[digit[0]].classList.add('active')
+    ones.forEach(number => number.classList.remove('active'))
+    ones[digit[1]].classList.add('active')
+}
+
+function tick() {
+    const time = getTime()
+    setDigits(hours, time.hours)
+    setDigits(mins, time.mins)
+    setDigits(secs, time.secs)
+}
+
+tick()
+
+setInterval(tick, 1000)
+    </script>
+</body>
+</html>

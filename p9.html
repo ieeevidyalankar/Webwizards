@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>Debug Challenge - Cursor Animation</title>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  height: 100vh;
+  background: #00052f;
+  cursor: none;
+}
+
+.main{
+  height: 100vh;
+  margin: 5% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+img {
+  border: 1px solid cyan;
+}
+
+.main h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 65px;
+}
+
+.main p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cursor{
+  z-index: 999;
+  position: fixed;
+
+  /* hint hint */
+
+  pointer-events: none;
+  animation: colors 5s infinite;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+@keyframes colors{
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+
+.cursor:before{
+  content: '';
+  position: absolute;
+
+  /* hint hint */
+
+  animation: colors 5s infinite;
+  transform: translate(-30%, -30%);
+  border-radius: 10%; 
+}
+      </style>
+    </head>
+    <body>
+  
+      <div class="cursor"></div>
+  
+      <section class="main">
+        <h1>Cursor Animation</h1>
+        <p>Create an animation for the cursor. Add changes to the .cursor class in the style section, no need to change the JS code. The final solution should look something like this.</p>
+        <img src="https://files.catbox.moe/z4ny14.jpg" alt="SS" width="900">
+      </section>
+  
+      <script type="text/javascript">
+      const cursor = document.querySelector(".cursor");
+  
+      document.addEventListener("mousemove", (e) => {
+        let x = e.pageX;
+        let y = e.pageY;
+        cursor.style.top = y + "px";
+        cursor.style.left = x + "px";
+        cursor.style.display = "block";
+      });
+  
+      document.addEventListener("mouseout", () => {
+        cursor.style.display = "none";
+      });
+      </script>
+    </body>
+  </html>

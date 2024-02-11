@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Debug Challenge - Modal</title>
+<style>
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #003b75;
+  color: white;
+}
+
+
+.modal {
+  display: block;
+  position: relative;
+  z-index: -1;
+  padding-top: 10px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(1px);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #0a83c9;
+  margin: auto;
+  padding: 0px 20px 80px 20px;
+  border: 2px solid #ffffff;
+  width: 80%;
+  border-radius: 1rem;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+
+  <h2>A modal is a web page element that displays in front of and deactivates all other page content. The general purpose of modals is to grab attention and encourage actions.</h2>
+
+  <p>Make the modal functional by fixing its position. Upon pressing the open button, the modal should open on top of the window.</p>
+
+<button id="btn">Open</button>
+
+<div id="moo" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p><img src="" alt="">Is your modal is working properly?</p>
+  </div>
+</div>
+
+<script>
+var modal = document.getElementById("moo");
+var btn = document.getElementById("btn");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
